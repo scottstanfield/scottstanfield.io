@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8"> 
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Scott Stanfield</title>
+
+    <meta name="description" content="Scott Stanfield personal site.">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="apple-touch-icon" href="icon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/normalize-opentype.css">
+	<!-- <link rel="stylesheet" href="css/main.css"> -->
+
+    <link href="equity/stylesheet.css" rel="stylesheet">
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-rendering: optimizeLegibility;
+        -webkit-text-size-adjust: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    body, html {
+        font-family: 'equity_text_aregular';
+        width: 100%;
+        height: 100%;
+        color: #FFF;
+        background: #222;
+        /* cursor: url('cur-1.png') 13 13, auto; */
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* overflow: hidden; */
+    }
+    body:after {
+        content:'';
+        position: fixed;
+        display: block;
+        z-index: 2;
+        width: 100%;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        background: #FFF;
+        cursor: none;
+        -webkit-animation: slideOut 600ms 600ms forwards;
+        animation: slideOut 600ms 600ms forwards;
+    }
+    h1 {
+        position: fixed;
+        bottom: 40px;
+        left: 40px;
+        max-width: 600px;
+    }
+    h1, a {
+        font-size: 27px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 1.25;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: #FFF;
+    }
+    time, a.link, a.name {
+        position: fixed;
+        font-size: 25px;
+        font-weight: 300;
+        line-height: 1;
+        letter-spacing: 1px;
+    }
+    time {
+        top: 30px;
+        right: 40px;
+        min-width: 140px;
+    }
+    a.link {
+        bottom: 35px;
+        right: 40px;
+    }
+    a.name {
+        top: 30px;
+        left: 40px;
+    }
+    a.name:after {
+        content:'';
+        display: inline-block;
+        vertical-align: bottom;
+        width: 15px;
+        height: 3px;
+        background: #FFF;
+        -webkit-animation: blink 1s linear infinite;
+        animation: blink 1s linear infinite;
+    }
+    a:hover {
+        cursor: url('cur-2.png') 13 13, auto;
+        text-decoration: none;
+        outline: none;
+        border: none;
+    }
+    @media(max-width: 760px) {
+        h1, a, a.name {
+            font-size: 20px;
+            left: 30px;
+            right: 30px;
+        }
+        time, a.link {
+            display: none;
+        }
+    }
+    @-webkit-keyframes slideOut {
+        100% { visibility:hidden; -webkit-transform:translateX(100%); }
+    }
+    @keyframes slideOut {
+        100% { visibility:hidden; transform:translateX(100%); }
+    }
+    @-webkit-keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
+    }
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        50.01%, 100% { opacity: 0; }
+    }
+
+
+    </style>
+</head>
+<body>
+    <a href="http://stanfield.io" class="name">Scott Stanfield</a>
+    <h1>
+		Developer > CEO > Data Scientist<br>
+		Building R & Python predictive systems with <abbr>H2O</abbr>.<br><br>
+
+		For project queries or additional details, please contact scott@stanfield.io<br>
+	</h1>
+    <!-- <a href="http://github.com/scottstanfield" class="link">@scottstanfield</a> -->
+    <time></time>
+
+    <script>
+    (function Time() {
+        var now = new Date();
+        var H = now.getHours();
+        var M = now.getMinutes();
+        var P = H >= 12 ? 'PM' : 'AM';
+        var D = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][now.getDay()];
+        H = ((H + 11) % 12 + 1);
+        M < 10 && (M = '0' + M);
+        document.querySelector('time').innerHTML = D + ' ' + H + ':' + M + ' ' + P;
+        setTimeout(Time, 1000);
+        })(); 
+    </script>
+
+</body>
+</html>
